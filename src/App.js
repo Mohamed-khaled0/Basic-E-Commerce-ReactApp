@@ -6,6 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom"; // Import useLoca
 import About from './components/About';
 import ProductDetails from './components/ProductDetails';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   const location = useLocation(); // Get the current location
@@ -13,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* Only show Slider on the home page */}
-      {location.pathname === '/' && <Slider />}
+      {location.pathname === '/' && <Slider />} {/* Show Slider only on the home page */}
+      
       <Routes>
         <Route
           path="/"
@@ -28,6 +29,9 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="product/:productId" element={<ProductDetails />} />
       </Routes>
+      
+      {/* Render Footer only on the home page */}
+      {location.pathname === '/' && <Footer />}
     </div>
   );
 }

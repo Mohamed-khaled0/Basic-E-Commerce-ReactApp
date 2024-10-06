@@ -1,4 +1,3 @@
-.height-300 {
-    height: 300px !important;
-  }
-  
+.carousel-item img {
+    max-height: 350px; /* Set a maximum height */
+}

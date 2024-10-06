@@ -1,3 +1,4 @@
+import React from 'react';
 import image1 from './images/image1.jpg';
 import image2 from './images/image2.jpg';
 import image3 from './images/image3.jpg';
@@ -10,21 +11,21 @@ function Slider() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                className="d-block w-100 height-300"
+                className="d-block w-100"
                 src={image1}
                 alt="First slide"
               />
             </div>
             <div className="carousel-item">
               <img
-                className="d-block w-100 height-300"
+                className="d-block w-100"
                 src={image2}
                 alt="Second slide"
               />
             </div>
             <div className="carousel-item">
               <img
-                className="d-block w-100 height-300"
+                className="d-block w-100"
                 src={image3}
                 alt="Third slide"
               />
@@ -41,7 +42,6 @@ function Slider() {
         </div>
       </>
     );
-  }
-  
-  export default Slider;
-  
+}
+
+export default Slider;
