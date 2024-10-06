@@ -1,0 +1,22 @@
+.card {
+    margin-bottom: 1.5rem; /* Adjusts spacing between cards */
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem; /* Adjusts spacing below title */
+  }
+  
+  .card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* Limit to 4 lines */
+  }
+  
+  .card-price {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+    margin-top: 0.5rem; /* Space above price */
+  }
+  
