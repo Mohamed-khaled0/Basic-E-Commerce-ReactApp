@@ -2,41 +2,23 @@ import { useEffect, useState } from "react";
 import Product from "./Product";
 
 function ProductsList() {
-  const api_url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  let api_url = "https://fakestoreapi.com/products";
+  let [products, setProducts] = useState([]);
+  let [categories, setCategories] = useState([]);
 
-  const getProductInCategory = (categoryName) => {
-    setLoading(true);
+  let getProductInCategory = (categoryName) => {
     fetch(`${api_url}/category/${categoryName}`)
       .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
+      .then((data) => setProducts(data));
   };
 
-  const getProducts = () => {
-    setLoading(true);
+  let getProducts = () => {
     fetch(api_url)
       .then((resp) => resp.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
+      .then((data) => setProducts(data));
   };
 
-  const getCategories = () => {
+  let getCategories = () => {
     fetch(`${api_url}/categories`)
       .then((resp) => resp.json())
       .then((data) => setCategories(data));
@@ -47,33 +29,44 @@ function ProductsList() {
     getCategories();
   }, []);
 
-  if (loading) return <div className="text-center">Loading...</div>;
-  if (error) return <div className="text-center">Error fetching products</div>;
-
   return (
     <>
       <h2 className="text-center p-3">Our Products</h2>
+
       <div className="container">
-        <button onClick={getProducts} className="btn btn-info p-2 m-2">All Products</button>
-        {categories.map((category) => (
-          <button
-            onClick={() => getProductInCategory(category)}
-            key={category}
-            className="btn btn-info p-2 m-2"
-          >
-            {category}
-          </button>
-        ))}
+        <button
+          onClick={() => {
+            getProducts();
+          }}
+          className="btn btn-info p-2 m-2">
+          All Products
+        </button>
+        {categories.map((category) => {
+          return (
+            <button
+              onClick={() => {
+                getProductInCategory(category)
+              }}
+              key={category}
+              className="btn btn-info p-2 m-2"
+            >
+              {" "}
+              {category}
+            </button>
+          );
+
+        })}
         <div className="row">
-          {products.map((product) => (
-            <div className="col-3" key={product.id}>
-              <Product product={product} showButton={true} />
-            </div>
-          ))}
+          {products.map((product) => {
+            return (
+              <div className="col-3" key={product.id}>
+                <Product product={product} showButton={true} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
   );
 }
-
 export default ProductsList;

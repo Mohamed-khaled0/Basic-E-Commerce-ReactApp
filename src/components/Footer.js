@@ -6,10 +6,6 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 mb-3">
-                        <h5>About Us</h5>
-                        <p>
-                            Your company description goes here. Briefly explain your mission, vision, or what products you offer.
-                        </p>
                     </div>
                     <div className="col-md-4 mb-3">
                         <h5>Quick Links</h5>
