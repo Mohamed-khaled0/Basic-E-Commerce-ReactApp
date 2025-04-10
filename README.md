@@ -2,7 +2,6 @@
 
 
 ## Table of Contents
-- [Live-Demo](https://reactjs-e-commerce-app.surge.sh/)
 - [Youtube-Demo](https://youtu.be/99tYZccwGpQ)
 - [Description](#description)
 - [Features](#features)
